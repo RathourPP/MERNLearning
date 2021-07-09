@@ -5,13 +5,14 @@ import Employee from './Component/FunctionalComponent/Employee'
 import Test from './Component/FunctionalComponent/test'
 import User from './Component/User'
 import Registration from './Component/Form';
+import Header from './Component/PropsComponent/Header'
 import './Style/style.css';
 
 function App() {
   return (
     <Fragment>
     {/* <Count/> */}
-    <Test/>
+    <Header/>
     </Fragment>
   );
 }
