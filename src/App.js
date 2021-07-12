@@ -6,14 +6,15 @@ import Test from './Component/FunctionalComponent/test'
 import User from './Component/User'
 import Registration from './Component/Form';
 import Header from './Component/PropsComponent/Header'
+import history from './history';
 import './Style/style.css';
 
-function App() {
+function App(props) {
+  const OnClickRedirect=()=>{
+    props.history.push("/Registration");
+}
   return (
-    <Fragment>
-    {/* <Count/> */}
-    <Header/>
-    </Fragment>
+    <button onClick={()=>{OnClickRedirect()}}>Click Me</button>
   );
 }
 

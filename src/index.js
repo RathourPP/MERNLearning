@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import history from './history';
+import { Provider } from 'react-redux';
+import{BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
+import Login from './Component/RoutingComponent/Login'
+import Registration from './Component/RoutingComponent/Registration'
+import NotFound from './Component/RoutingComponent/NotFound'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  
+      <BrowserRouter history={history}>
+        <Route exact path="/" component={Login}/>
+        <Route  path="/Registration" component={Registration}/>
+        <Route  path="/NotFound" component={NotFound}/>
+        <Route  path="/home" component={App}/>
+        {/* <Redirect from="/" to="/Registration/1"/> */}
+     </BrowserRouter>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
