@@ -1,28 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import configureStore from './core/configureStore';
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+import {Provider} from "react-redux";
+import history from './services/history'
 import reportWebVitals from './reportWebVitals';
-import history from './history';
-import { Provider } from 'react-redux';
-import{BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
-import Login from './Component/RoutingComponent/Login'
-import Registration from './Component/RoutingComponent/Registration'
-import NotFound from './Component/RoutingComponent/NotFound'
+import Users from './Component/ConnectedComponents/User/User'
 
-
+const store=configureStore();
 ReactDOM.render(
-  <React.StrictMode>
-  
-      <BrowserRouter history={history}>
-        <Route exact path="/" component={Login}/>
-        <Route  path="/Registration" component={Registration}/>
-        <Route  path="/NotFound" component={NotFound}/>
-        <Route  path="/home" component={App}/>
-        {/* <Redirect from="/" to="/Registration/1"/> */}
-     </BrowserRouter>
-
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Router history={history}>
+    <Route exact path="/" component={Users}/>
+    </Router>
+  </Provider>
+ ,
   document.getElementById('root')
 );
 
